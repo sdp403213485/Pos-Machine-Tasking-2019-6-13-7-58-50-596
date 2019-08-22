@@ -79,8 +79,8 @@ function print(getedItems,calculatedTotal){
      let subStr;
 
     for(var i=0; i<getedItems.length; i++){
-        for(var j=0;j<20-getedItems[i].id.length;j++){
-            str[i]=getedItems[i].id +"20-getedItems[i].id.length"+getedItems[i].price +"         "+ getedItems[i].count + "\n"
+        
+            str[i]=getedItems[i].id +"      "+getedItems[i].price +"         "+ getedItems[i].count + "\n"
         }
        
     }
