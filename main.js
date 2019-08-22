@@ -102,5 +102,3 @@ function print(getedItems,calculatedTotal){
     // str = getedItems[i].id+ " " +getedItems[i].price+" "+ getedItems[i].count
     // return str;
 }
-
-
