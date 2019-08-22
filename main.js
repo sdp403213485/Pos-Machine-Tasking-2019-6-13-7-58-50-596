@@ -12,19 +12,92 @@ const database = [
 ];
 
 function printReceipt (barcodeArray) {
+    // barcodeArray=['0001', '0003', '0005', '0003'];
+    // result=countItems(barcodeArray);
+    // getedItems=getItems(result);
+    // calculatedTotal=calculateTotal(getedItems);
+    // return calculatedTotal;
 
+//    barcodeArray=['0001', '0003', '0005', '0003'];
+//     result=countItems(barcodeArray);
+//     getedItems=getItems(result);
+//     calculateTotal(getedItems);
+//     return calculatedTotal;
+
+    barcodeArray=['0001', '0003', '0005', '0003'];
+    result=countItems(barcodeArray);
+    getedItems=getItems(result);
+    calculatedTotal=calculateTotal(getedItems)
+    str=print(getedItems,calculatedTotal);
 }
 
 
-function isValid(barcodeArray){
-    var isValidResult;
-    if(barcodeArray.length === 0){
-        checkResult = "输入为空";
-    }else if(barcodeArray.length > 1000{
-        checkResult = "输入超出限制";           
-    }else {
-            checkResult = "Success";
+//['0001', '0003', '0005', '0003']
+
+function countItems(barcodeArray){
+    let result = [];
+    let map = new Map();
+    for(let i = 0; i < barcodeArray.length; i++){
+        if (map.get(barcodeArray[i])==null){
+            map.set(barcodeArray[i],1);
+        }else{
+            map.set(barcodeArray[i],map.get(barcodeArray[i])+1);
+        }
     }
-    return isValidResult;
+
+    map.forEach(function(value,key){
+        result.push({id:key,count:value})
+      });
+    return result;
+}
+
+
+
+function getItems(result){
+    let getedItems=[];
+    for(let i = 0; i<result.length;i++){
+        for (let j=0; j<database.length;j++){
+            if(result[i].id==database[j].id){
+                getedItems.push({id:database[j].name,count:result[i].count,price:database[j].price})
+            }
+        }
+    }
+    return getedItems;
+}
+
+function calculateTotal(getedItems){
+    let calculatedTotal=0;
+        for(let i=0; i<getedItems.length;i++){
+            calculatedTotal=calculatedTotal+(getedItems[i].count *getedItems[i].price)
+        }
+    return calculatedTotal;
+}
+
+
+function print(getedItems,calculatedTotal){
+     let str=[];
+     let subStr;
+
+    for(var i=0; i<getedItems.length; i++){
+        for(var j=0;j<20-getedItems[i].id.length;j++){
+            str[i]=getedItems[i].id +"20-getedItems[i].id.length"+getedItems[i].price +"         "+ getedItems[i].count + "\n"
+        }
+       
+    }
+    for(var i=0; i<str.length;i++){
+        subStr=str[0] +str[1]+str[2]
+    }
+
+    receipt = "Receipts\n" +
+        "-----------------------------------\n" +
+    
+
+        subStr+
+        "-----------------------------------\n" +
+        "Price:"+calculatedTotal;
+    return receipt;
+
+    // str = getedItems[i].id+ " " +getedItems[i].price+" "+ getedItems[i].count
+    // return str;
 }
 
