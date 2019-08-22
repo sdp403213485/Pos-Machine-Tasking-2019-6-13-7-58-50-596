@@ -79,10 +79,13 @@ function print(getedItems,calculatedTotal){
      let subStr;
 
     for(var i=0; i<getedItems.length; i++){
-        
-            str[i]=getedItems[i].id +"      "+getedItems[i].price +"         "+ getedItems[i].count + "\n"
+        str[i]=getedItems[i].id
+        for(var j=0;j<20-getedItems[i].id.length;j++){
+            str[i]=str[i]+" "
+        }
+        str[i]=str[i] +getedItems[i].price +"         "+ getedItems[i].count + "\n"
+       
     }
-      
     for(var i=0; i<str.length;i++){
         subStr=str[0] +str[1]+str[2]
     }
@@ -99,4 +102,5 @@ function print(getedItems,calculatedTotal){
     // str = getedItems[i].id+ " " +getedItems[i].price+" "+ getedItems[i].count
     // return str;
 }
+
 
