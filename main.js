@@ -81,9 +81,8 @@ function print(getedItems,calculatedTotal){
     for(var i=0; i<getedItems.length; i++){
         
             str[i]=getedItems[i].id +"      "+getedItems[i].price +"         "+ getedItems[i].count + "\n"
-        }
-       
     }
+      
     for(var i=0; i<str.length;i++){
         subStr=str[0] +str[1]+str[2]
     }
